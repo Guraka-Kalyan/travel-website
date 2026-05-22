@@ -114,9 +114,6 @@ function VayuHome() {
           <a href="#journal" className="hover:text-sage transition-colors">Stories</a>
           <a href="#contact" className="hover:text-sage transition-colors">Contact</a>
         </div>
-        <button className="px-5 py-2.5 bg-sage text-primary-foreground rounded-full text-[11px] font-bold uppercase tracking-[0.2em] shadow-lg shadow-sage/20 hover:bg-foreground transition-all">
-          Book Now
-        </button>
       </nav>
 
       {/* Hero */}
