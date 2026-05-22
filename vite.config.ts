@@ -11,6 +11,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 export default defineConfig({
   cloudflare: !process.env.VERCEL,
   tanstackStart: {
+    prerender: { enabled: !!process.env.VERCEL },
     server: { entry: "server" },
   },
 });
