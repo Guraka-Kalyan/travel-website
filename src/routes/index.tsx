@@ -14,7 +14,7 @@ import blogFaroe from "@/assets/blog-faroe.jpg";
 import blogMarrakesh from "@/assets/blog-marrakesh.jpg";
 
 export const Route = createFileRoute("/")({
-  component: HorizonsHome,
+  component: VayuHome,
 });
 
 type TabKey = "flights" | "buses" | "hotels" | "packages";
@@ -48,8 +48,8 @@ function SearchForm({ tab }: { tab: TabKey }) {
           <button className="px-3 py-1 rounded-full hover:bg-foreground/5">One Way</button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-6 gap-1 p-2">
-          <Field label="From" placeholder="Reykjavik, IS" />
-          <Field label="To" placeholder="Tokyo, JP" />
+          <Field label="From" placeholder="Mumbai" />
+          <Field label="To" placeholder="Delhi" />
           <Field label="Departure" placeholder="Oct 24" />
           <Field label="Return" placeholder="Oct 31" />
           <Field label="Travelers" placeholder="2 Adults" withDivider={false} />
@@ -63,8 +63,8 @@ function SearchForm({ tab }: { tab: TabKey }) {
   if (tab === "buses") {
     return (
       <div className="grid grid-cols-1 md:grid-cols-5 gap-1 p-2">
-        <Field label="From" placeholder="Lisbon" />
-        <Field label="To" placeholder="Porto" />
+        <Field label="From" placeholder="Pune" />
+        <Field label="To" placeholder="Bangalore" />
         <Field label="Date" placeholder="Oct 24" />
         <Field label="Passengers" placeholder="2 Adults" withDivider={false} />
         <button className="bg-sage text-primary-foreground rounded-2xl font-bold uppercase text-xs tracking-[0.2em] hover:bg-foreground transition-all flex items-center justify-center gap-2 py-4 md:py-0">
@@ -76,7 +76,7 @@ function SearchForm({ tab }: { tab: TabKey }) {
   if (tab === "hotels") {
     return (
       <div className="grid grid-cols-1 md:grid-cols-6 gap-1 p-2">
-        <Field label="City" placeholder="Kyoto, JP" />
+        <Field label="City" placeholder="Hyderabad" />
         <Field label="Check-in" placeholder="Oct 24" />
         <Field label="Check-out" placeholder="Oct 28" />
         <Field label="Rooms" placeholder="1 Room" />
@@ -89,7 +89,7 @@ function SearchForm({ tab }: { tab: TabKey }) {
   }
   return (
     <div className="grid grid-cols-1 md:grid-cols-5 gap-1 p-2">
-      <Field label="Destination" placeholder="Bali, ID" />
+      <Field label="Destination" placeholder="Chennai / Tirupati / Kolkata" />
       <Field label="Travel Date" placeholder="Nov 12" />
       <Field label="Duration" placeholder="7 Nights" />
       <Field label="Travellers" placeholder="2 Adults" withDivider={false} />
@@ -100,14 +100,14 @@ function SearchForm({ tab }: { tab: TabKey }) {
   );
 }
 
-function HorizonsHome() {
+function VayuHome() {
   const [tab, setTab] = useState<TabKey>("flights");
 
   return (
     <div className="font-body text-foreground selection:bg-sage/20">
       {/* Navigation */}
       <nav className="fixed top-0 inset-x-0 z-50 px-6 py-4 flex justify-between items-center bg-background/60 backdrop-blur-md border-b border-foreground/5">
-        <div className="font-display font-extrabold text-2xl tracking-tighter text-sage uppercase">Horizons</div>
+        <div className="font-display font-extrabold text-2xl tracking-tighter text-sage uppercase">Vayu Travels</div>
         <div className="hidden md:flex gap-10 text-xs font-semibold tracking-[0.18em] opacity-80 uppercase">
           <a href="#destinations" className="hover:text-sage transition-colors">Explore</a>
           <a href="#packages" className="hover:text-sage transition-colors">Packages</a>
@@ -173,9 +173,9 @@ function HorizonsHome() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {[
-            { img: destBali, country: "Indonesia", name: "Bali Spirits", offset: false },
-            { img: destKyoto, country: "Japan", name: "Kyoto Silence", offset: true },
-            { img: destZermatt, country: "Switzerland", name: "Zermatt Peaks", offset: false },
+            { img: destBali, country: "India", name: "Kerala Serenity", offset: false },
+            { img: destKyoto, country: "India", name: "Varanasi Mystique", offset: true },
+            { img: destZermatt, country: "India", name: "Manali Heights", offset: false },
           ].map((d) => (
             <div key={d.name} className={`group cursor-pointer ${d.offset ? "md:mt-16" : ""}`}>
               <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-6 ring-1 ring-foreground/5">
@@ -195,12 +195,12 @@ function HorizonsHome() {
       <section className="bg-foreground text-background py-28 md:py-36 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mb-16">
-            <p className="text-sage font-bold text-[11px] uppercase tracking-[0.3em] mb-4">Why Horizons</p>
+            <p className="text-sage font-bold text-[11px] uppercase tracking-[0.3em] mb-4">Why Vayu Travels</p>
             <h2 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight">Travel, refined.</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
             {[
-              { Icon: BadgeDollarSign, title: "Best Prices", desc: "Guaranteed rates matched with our global network of curated partners." },
+              { Icon: BadgeDollarSign, title: "Best Prices", desc: "Guaranteed rates matched with our premium network of curated partners." },
               { Icon: Headphones, title: "24/7 Support", desc: "Our concierge is always online to ensure your peace of mind." },
               { Icon: Sparkles, title: "Easy Booking", desc: "One-tap reservation system for all your travel essentials." },
               { Icon: ShieldCheck, title: "Secure Payments", desc: "End-to-end encrypted payments with global security standards." },
@@ -229,10 +229,10 @@ function HorizonsHome() {
 
         <div className="flex gap-6 md:gap-8 overflow-x-auto pb-12 px-6 md:px-[max(1.5rem,calc((100vw-80rem)/2))] no-scrollbar snap-x snap-mandatory">
           {[
-            { img: pkgSafari, dur: "7 Days / 6 Nights", price: "$2,499", name: "Safari Serenity — Kenya" },
-            { img: pkgAmalfi, dur: "5 Days / 4 Nights", price: "$1,850", name: "Coastal Bliss — Amalfi" },
-            { img: pkgSingapore, dur: "4 Days / 3 Nights", price: "$1,200", name: "Neon Horizon — Singapore" },
-            { img: pkgSafari, dur: "10 Days / 9 Nights", price: "$3,400", name: "Wild Patagonia — Chile" },
+            { img: pkgSafari, dur: "7 Days / 6 Nights", price: "₹49,999", name: "Royal Rajasthan Heritage — Jaipur & Udaipur" },
+            { img: pkgAmalfi, dur: "5 Days / 4 Nights", price: "₹34,999", name: "Andaman Beach Bliss — Havelock" },
+            { img: pkgSingapore, dur: "4 Days / 3 Nights", price: "₹24,999", name: "Goa Sunshine Escape — Vagator" },
+            { img: pkgSafari, dur: "10 Days / 9 Nights", price: "₹59,999", name: "Leh-Ladakh Adventure — Pangong Lake" },
           ].map((p, i) => (
             <article key={i} className="min-w-[320px] md:min-w-[400px] bg-card rounded-[2rem] p-3 shadow-xl shadow-foreground/5 snap-start border border-foreground/5">
               <img src={p.img} alt={p.name} loading="lazy" className="w-full aspect-video rounded-[1.5rem] object-cover mb-6" />
@@ -261,9 +261,9 @@ function HorizonsHome() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             {[
-              { img: blogPack, tag: "Travel Tips — Oct 12", title: "How to Pack for the Unexpected: A Guide to Minimalist Adventure" },
-              { img: blogFaroe, tag: "Destinations — Oct 08", title: "Faroe Islands: The Last Frontier of Northern Europe" },
-              { img: blogMarrakesh, tag: "Culture — Oct 02", title: "Marrakesh: A Sensory Symphony Through the Medina" },
+              { img: blogPack, tag: "Travel Tips — Oct 12", title: "How to Pack for the Himalayas: A Guide to Trekking in Leh & Manali" },
+              { img: blogFaroe, tag: "Destinations — Oct 08", title: "Coorg & Ooty: Exploring the Lush Coffee Hills of South India" },
+              { img: blogMarrakesh, tag: "Culture — Oct 02", title: "Shimla: A Nostalgic Journey Through the Colonial Summer Capital" },
             ].map((b) => (
               <article key={b.title} className="group cursor-pointer">
                 <div className="aspect-video rounded-3xl overflow-hidden mb-6">
@@ -312,14 +312,14 @@ function HorizonsHome() {
       {/* Footer */}
       <footer className="py-16 px-6 border-t border-foreground/5 bg-background text-sm">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-          <div className="font-display font-extrabold text-2xl tracking-tighter text-sage uppercase">Horizons</div>
+          <div className="font-display font-extrabold text-2xl tracking-tighter text-sage uppercase">Vayu Travels</div>
           <div className="flex flex-wrap justify-center gap-8 md:gap-10 opacity-60 font-medium">
             <a href="#" className="hover:text-sage transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-sage transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-sage transition-colors">Partner with Us</a>
             <a href="#" className="hover:text-sage transition-colors">Careers</a>
           </div>
-          <p className="opacity-40 text-xs">© 2026 Horizons Travel Studio</p>
+          <p className="opacity-40 text-xs">© 2026 Vayu Travels</p>
         </div>
       </footer>
     </div>
