@@ -133,7 +133,7 @@ function VayuHome() {
         </div>
 
         <div className="text-center max-w-5xl w-full animate-reveal">
-          <p className="text-[11px] font-bold uppercase tracking-[0.4em] text-sage mb-6">A Travel Studio · Est. 2026</p>
+          <p className="text-[11px] font-bold uppercase tracking-[0.4em] text-sage mb-6">A Travel Studio </p>
           <h1 className="font-display font-extrabold text-5xl md:text-7xl lg:text-8xl tracking-tight text-balance mb-12 leading-[0.95]">
             Your Journey <span className="text-sage italic font-normal">Starts Here</span>
           </h1>
@@ -145,9 +145,8 @@ function VayuHome() {
                 <button
                   key={key}
                   onClick={() => setTab(key)}
-                  className={`px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] flex items-center gap-2 transition-all ${
-                    tab === key ? "bg-card text-foreground shadow-sm" : "text-foreground/50 hover:text-foreground"
-                  }`}
+                  className={`px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] flex items-center gap-2 transition-all ${tab === key ? "bg-card text-foreground shadow-sm" : "text-foreground/50 hover:text-foreground"
+                    }`}
                 >
                   <Icon className="size-3.5" />
                   <span className="hidden sm:inline">{label}</span>
